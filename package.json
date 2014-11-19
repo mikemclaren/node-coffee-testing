@@ -1,0 +1,37 @@
+{
+  "name": "node-coffee-testing",
+  "version": "0.0.1",
+  "description": "A boilerplate for NodeJS that includes testing tools and an established testing workflow. Written in Coffeescript.",
+  "main": "server.coffee",
+  "scripts": {
+    "test": "make test && make coverage",
+    "start": "./node_modules/.bin/supervisor app.coffee | ./node_modules/.bin/bunyan -o short --level trace"
+  },
+  "pre-commit": [
+    "./node_modules/.bin/coffeelint ./tests ./app app.coffee"
+  ],
+  "pre-push": [
+    "npm test"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mikemclaren/node-coffee-testing"
+  },
+  "author": "Mike Mclaren",
+  "bugs": {
+    "url": "https://github.com/mikemclaren/node-coffee-testing/issues"
+  },
+  "homepage": "https://github.com/mikemclaren/node-coffee-testing",
+  "private": true,
+  "dependencies": {
+    "coffee-script": "^1.8.0",
+    "supervisor": "^0.6.0"
+  },
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "coffee-coverage": "^0.4.2",
+    "coffeelint": "^1.6.1",
+    "mocha": "^2.0.1",
+    "pre-git": "^0.1.1"
+  }
+}
